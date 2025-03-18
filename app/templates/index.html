@@ -1,17 +1,11 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Главная Страница</title>
-</head>
-<body>
-    <h1>Привет {{ user.username }}</h1>
-    {% if user.status == 'online' %}
-    <p style="color: green"> {{user.status}}</p>
-    {% else %}
-    <p style="color: red"> {{user.status}}</p>
-    {% endif %}
-    <hr>
-    <address>http://127.0.0.1:5000/users</address>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+        <h1>Привет {{ user.username }} ({{user.age}})</h1>
+        {% if user.status == 'online' %}
+        <p style="color:green;">{{user.status}}</p>
+        {% else %}
+        <p style="color:red;">{{user.status}}</p>
+        {% endif %}
+        <hr>
+{% endblock %}
