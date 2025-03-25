@@ -2,7 +2,8 @@
 
 from flask import render_template, redirect, flash
 from app import app
-from app.forms import LoginForm
+from app.forms import LoginForm, RegistrationForm
+
 
 @app.route('/')
 def index():
@@ -33,3 +34,11 @@ def login():
         flash('Вы вошли как {}'.format(
             form.username.data))
     return render_template('login.html', form=form)
+
+
+@app.route('/register', methods=["GET", "POT"])
+def register():
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        flash('Вы зарегистрировались как {}'.format(form.username.data))
+    return render_template('register.html', form=form)

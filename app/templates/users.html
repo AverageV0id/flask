@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Пользователи</title>
-</head>
-<body>
- <h2>Список Пользователей</h2>
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Список Пользователей</h2>
     <p style="color: green"> Online:</p>
     {% for user in all_users%}
     {% if user.status == 'online' %}
@@ -20,5 +16,4 @@
     <hr>
     {%endif%}
     {%endfor%}
-</body>
-</html>
+{% endblock %}
